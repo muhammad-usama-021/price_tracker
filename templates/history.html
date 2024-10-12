@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Price History - {{ product['name'] }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Price History for "{{ product['name'] }}"</h1>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Price ($)</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in price_history %}
+            <tr>
+                <td>{{ record['price'] }}</td>
+                <td>{{ record['date'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
